@@ -60,4 +60,4 @@ npm run dev
 
 ## GitHub Repository
 
-YOUR_GITHUB_REPOSITORY_URL
+https://github.com/202612108-oss/Salon_Queue_Management_Systems
