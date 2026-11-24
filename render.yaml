@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: salon-queue-backend
+    runtime: node
+    plan: starter # Persistent disk requires Render Starter tier or above
+    buildCommand: npm install && npm run build:backend
+    startCommand: npm run start:backend
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATA_DIR
+        value: /var/data
+      - key: DATABASE_PATH
+        value: /var/data/salon.sqlite
+      - key: FRONTEND_URL
+        value: "*" # Replace with your Vercel deployment URL (e.g. https://your-salon.vercel.app)
+    disk:
+      name: salon-data
+      mountPath: /var/data
+      sizeGB: 1

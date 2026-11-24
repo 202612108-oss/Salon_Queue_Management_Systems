@@ -1,0 +1,24 @@
+{
+  "name": "salon-queue-management-system",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "shared",
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -p \"[{name}]\" -n \"BACKEND,FRONTEND\" -c \"cyan.bold,magenta.bold\" \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "npm run dev --workspace=backend",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "build": "npm run build --workspace=shared && npm run build --workspace=backend && npm run build --workspace=frontend",
+    "build:backend": "npm run build --workspace=shared && npm run build --workspace=backend",
+    "build:frontend": "npm run build --workspace=shared && npm run build --workspace=frontend",
+    "start:backend": "node backend/dist/index.js",
+    "test": "npm run build --workspace=shared && npm run build --workspace=backend && node --test backend/tests/*.test.mjs",
+    "typecheck": "npm run typecheck --workspace=shared && npm run typecheck --workspace=backend && npm run typecheck --workspace=frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

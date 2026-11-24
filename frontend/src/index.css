@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-charcoal-dark text-silver-highlight min-h-screen antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@layer components {
+  .theme-card {
+    @apply bg-charcoal-surface border border-charcoal-border rounded-2xl shadow-lg transition-all duration-200;
+  }
+  
+  .theme-btn-primary {
+    @apply bg-gold text-charcoal-dark font-semibold px-4 py-2.5 rounded-xl hover:bg-gold-hover active:scale-[0.98] transition-all duration-150 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .theme-btn-secondary {
+    @apply bg-charcoal border border-gold/40 text-gold font-medium px-4 py-2.5 rounded-xl hover:border-gold hover:bg-gold/10 active:scale-[0.98] transition-all duration-150 disabled:opacity-50 disabled:pointer-events-none;
+  }
+}
